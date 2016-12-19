@@ -7,17 +7,12 @@
 
 	myApp.config(function($stateProvider, $urlRouterProvider) {
 
-		$urlRouterProvider.otherwise("/home");
+		$urlRouterProvider.otherwise("/dashboard");
 
 		$stateProvider
-		.state('home', {
-		    url: "/home",
-		    templateUrl: "views/home.html"
-		})
-
-		.state('portal', {
-		    url: "/portal",
-		    templateUrl: "views/portal.html"
+		.state('dashboard', {
+		    url: "/dashboard",
+		    templateUrl: "views/dashboard.html"
 		})
 	}); 
 
