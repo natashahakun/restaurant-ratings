@@ -9627,3 +9627,12 @@ body {
     border-bottom: 1px solid black;
   }
 }
+/* line 1, ../sass/components/_search-bar.scss */
+.search-bar {
+  margin-bottom: 15px;
+}
+/* line 4, ../sass/components/_search-bar.scss */
+.search-bar form {
+  display: inline-block;
+  margin-right: 10px;
+}
