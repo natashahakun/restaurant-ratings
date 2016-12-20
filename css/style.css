@@ -9553,7 +9553,6 @@ button.close {
 /* line 1, ../sass/base/_site.scss */
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1rem;
   /*sticky footer*/
   display: -webkit-flex;
   display: flex;
@@ -9565,4 +9564,12 @@ body {
 /* line 1, ../sass/base/_utility.scss */
 .pointer {
   cursor: pointer;
+}
+
+/* line 1, ../sass/components/_card.scss */
+.card {
+  padding: 3rem;
+  border: 1px solid black;
+  border-radius: .25rem;
+  margin-bottom: 2rem;
 }
