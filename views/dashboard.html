@@ -1,15 +1,21 @@
 <div ng-controller="DashboardController" class="row">
-	<form class="form-inline">
-		<div class="form-group">
-			<input type="text" class="form-control" ng-model="restaurantSearch" placeholder="Search Restaurant">
-		</div>
-	</form>
+	<div ng-if="!addNewRestaurant" class="search-bar">
+		<form class="form-inline">
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="restaurantSearchTerm" ng-change="updateSearchTerm(restaurantSearchTerm)" placeholder="Search Restaurant">
+			</div>
+		</form>
 
-	<div ng-repeat="restaurant in restaurants" ng-click="showRestaurantInfo(restaurant)" class="col-xs-12 col-md-10 pointer card">
-	  	<div class="text-capitalize">{{ restaurant.name }}</div>
-	  	<div>{{ restaurant.type }}</div>
+	    <div class="btn-group" role="group">
+			<button ng-click="createNewRestaurant()" type="submit" class="btn btn-primary">Add Restaurant</button>
+		</div>
+	</div>
+
+	<div ng-if="!addNewRestaurant" ng-repeat="restaurant in filteredRestaurants = (restaurants | RestaurantSearch:restaurantSearchTerm)" ng-click="showRestaurantInfo(restaurant)" class="col-xs-12 col-md-10 pointer card">
+	  	<div ng-class="['text-capitalize', 'name', selectedRestaurant === restaurant ? 'font-italic' : 'font-weight-bold']">{{ restaurant.name }}</div>
 
 	  	<div ng-if="selectedRestaurant === restaurant" ng-include="'views/restaurant-detail.html'"></div>
-
 	</div>
+
+	<div ng-show="addNewRestaurant" ng-include="'views/restaurant-form.html'" class="col-xs-12 col-md-10"></div>
 </div>

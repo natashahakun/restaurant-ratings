@@ -244,6 +244,8 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 			}
 		]
 	};
+
+	// service.addNewRestaurant = false;
 	
 	return service;
 

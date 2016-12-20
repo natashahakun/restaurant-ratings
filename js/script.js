@@ -1,33 +1,21 @@
-angular.module("myApp").controller('DashboardController', ['$scope', '$rootScope', 'RestaurantsService', 'RestaurantDetailService', function($scope, $rootScope, RestaurantsService, RestaurantDetailService) {
+angular.module('myApp').filter('RestaurantSearch', [function() {
+    return function (restaurants, searchTerm) {
+    	var filteredRestaurants = [];
 
-	$scope.restaurants = RestaurantsService.restaurants;
-	$scope.restaurantSearch = '';
+    	if (searchTerm === '') {
+    		return restaurants;
+    	} else {
+    		angular.forEach(restaurants, function(restaurant) {
+    			var restaurantName = restaurant.name.toLowerCase();
+    			
+    			if (restaurantName.includes(searchTerm.toLowerCase())) {
+    				filteredRestaurants.push(restaurant);
+    			}
+    		});
+    	}
 
-	$scope.showRestaurantInfo = function(restaurant) {
-		if (restaurant !== $scope.selectedRestaurant) {
-			RestaurantDetailService.restaurant = restaurant;
-        	$scope.selectedRestaurant = restaurant;
-		} else {
-			RestaurantDetailService.restaurant = {};
-        	$scope.selectedRestaurant = {};
-		}  
+    	return filteredRestaurants;
     };
-
-}]);
-angular.module("myApp").controller('RestaurantDetailController', ['$scope', '$rootScope', 'RestaurantsService', 'RestaurantDetailService', function($scope, $rootScope, RestaurantsService, RestaurantDetailService) {
-
-	$scope.$watch( function(){
-		$scope.restaurant = RestaurantDetailService.restaurant;
-	});
-
-	$scope.setYesOrNo = function(trueOrFalse) {
-		if (trueOrFalse === true) {
-			return 'Yes';
-		} else {
-			return 'No';
-		}
-	};
-
 }]);
 angular.module("myApp").factory('RestaurantDetailService', function($rootScope) {
 
@@ -284,7 +272,76 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 			}
 		]
 	};
+
+	// service.addNewRestaurant = false;
 	
 	return service;
 
 });
+angular.module("myApp").controller('DashboardController', ['$scope', '$rootScope', 'RestaurantsService', 'RestaurantDetailService', function($scope, $rootScope, RestaurantsService, RestaurantDetailService) {
+
+	$scope.restaurants = RestaurantsService.restaurants;
+	$scope.filteredRestaurants = {};
+	$scope.restaurantSearchTerm = '';
+	$scope.addNewRestaurant = RestaurantsService.addNewRestaurant;
+
+	$scope.$watch(function() {
+		$scope.restaurants = RestaurantsService.restaurants;
+		$scope.addNewRestaurant = RestaurantsService.addNewRestaurant;
+	});
+
+	$scope.showRestaurantInfo = function(restaurant) {
+		if (restaurant !== $scope.selectedRestaurant) {
+			RestaurantDetailService.restaurant = restaurant;
+        	$scope.selectedRestaurant = restaurant;
+		} else {
+			RestaurantDetailService.restaurant = {};
+        	$scope.selectedRestaurant = {};
+		}  
+    };
+
+    $scope.updateSearchTerm = function(searchTerm) {
+    	$scope.restaurantSearchTerm = searchTerm;
+    };
+
+    $scope.createNewRestaurant = function() {
+    	RestaurantsService.addNewRestaurant = true;
+    };
+
+}]);
+angular.module("myApp").controller('RestaurantDetailController', ['$scope', '$rootScope', 'RestaurantsService', 'RestaurantDetailService', function($scope, $rootScope, RestaurantsService, RestaurantDetailService) {
+
+	$scope.$watch( function(){
+		$scope.restaurant = RestaurantDetailService.restaurant;
+	});
+
+	$scope.setYesOrNo = function(trueOrFalse) {
+		if (trueOrFalse === true) {
+			return 'Yes';
+		} else {
+			return 'No';
+		}
+	};
+
+}]);
+angular.module("myApp").controller('RestaurantFormController', ['$scope', '$rootScope', 'RestaurantsService', function($scope, $rootScope, RestaurantsService) {
+
+	$scope.newRestaurant = {
+		dishes : []
+	};
+	$scope.newDish = {};
+
+	$scope.createNewDish = function() {
+		$scope.newRestaurant.dishes.push($scope.newDish);
+		$scope.newDish = {};
+	};
+
+	$scope.createNewRestaurant = function() {
+		RestaurantsService.restaurants.push($scope.newRestaurant);
+		RestaurantsService.addNewRestaurant = false;
+		$scope.newRestaurant = { 
+			dishes : [] 
+		};
+	};
+
+}]);
