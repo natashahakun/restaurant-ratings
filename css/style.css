@@ -9553,6 +9553,7 @@ button.close {
 /* line 1, ../sass/base/_site.scss */
 body {
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
   /*sticky footer*/
   display: -webkit-flex;
   display: flex;
@@ -9566,10 +9567,24 @@ body {
   cursor: pointer;
 }
 
+/* line 5, ../sass/base/_utility.scss */
+.font-weight-bold {
+  font-weight: bold;
+}
+
+/* line 9, ../sass/base/_utility.scss */
+.font-italic {
+  font-style: italic;
+}
+
 /* line 1, ../sass/components/_card.scss */
 .card {
   padding: 3rem;
   border: 1px solid black;
   border-radius: .25rem;
   margin-bottom: 2rem;
+}
+/* line 7, ../sass/components/_card.scss */
+.card .name {
+  font-size: 20px;
 }
