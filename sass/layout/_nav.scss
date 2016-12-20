@@ -1,0 +1,14 @@
+.nav {
+	li:hover {
+		color: $primary-color;
+	}
+}
+
+@media (max-width: 992px) {
+	.nav {
+		li {
+			display: inline;
+			padding-right: 10%;
+		}
+	}
+}
