@@ -10,9 +10,10 @@ var sassSources = ['sass/style.scss'];
 
 // All js files that are to be concatenated:
 var jsSources = [
-	'controllers/*.js',
+	'filters/*.js',
 	'services/*.js',
-	'directives/*.js'
+	'directives/*.js',
+	'controllers/*.js'
 ];
 
 var htmlSources = [
