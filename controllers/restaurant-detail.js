@@ -4,4 +4,12 @@ angular.module("myApp").controller('RestaurantDetailController', ['$scope', '$ro
 		$scope.restaurant = RestaurantDetailService.restaurant;
 	});
 
+	$scope.setYesOrNo = function(trueOrFalse) {
+		if (trueOrFalse === true) {
+			return 'Yes';
+		} else {
+			return 'No';
+		}
+	};
+
 }]);

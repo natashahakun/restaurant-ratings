@@ -1,12 +1,15 @@
 <div ng-controller="RestaurantDetailController" class="row">
+
+	<div class="col-xs-12">Dishes</div>
   	<div ng-repeat="dish in restaurant.dishes" class="col-xs-12">
-  		<div>{{ dish.name }}</div>
+  		<div>Dish: {{ dish.name }}</div>
   		<div>{{ dish.scale }}</div>
-  		<div>{{ dish.heavy }}</div>
-  		<div>{{ dish.notes }}</div>
+  		<div>Recommend: <span>{{ setYesOrNo(dish.recommend) }}</span></div>
+  		<div>Heavy: <span>{{ setYesOrNo(dish.heavy) }}</span></div>
+  		<div>Notes: {{ dish.notes }}</div>
   	</div>
 
-  	<div ng-repeat="drink in drinks" class="col-xs-12">
+  	<!-- <div ng-repeat="drink in drinks" class="col-xs-12">
   		<div>{{ drink.name }}</div>
   		<div>{{ drink.scale }}</div>
   		<div>{{ drink.notes }}</div>
@@ -26,5 +29,5 @@
   	<div class="col-xs-12">
 	  	<div>{{ restaurant.service.scale }}</div>
 	  	<div>{{ restaurant.service.notes }}</div>
-	</div>
+	</div> -->
 </div>
