@@ -10,7 +10,9 @@ var sassSources = ['sass/style.scss'];
 
 // All js files that are to be concatenated:
 var jsSources = [
-	'controllers/*.js'
+	'controllers/*.js',
+	'services/*.js',
+	'directives/*.js'
 ];
 
 var htmlSources = [
@@ -45,7 +47,7 @@ gulp.task('compass', function(){
 
 gulp.task('watch', function() {
 	gulp.watch(jsSources, ['js']),
-	gulp.watch('sass/**.scss', ['compass']),
+	gulp.watch('sass/**', ['compass']),
 	gulp.watch(htmlSources, ['html'])
 });
 

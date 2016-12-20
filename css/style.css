@@ -9554,11 +9554,15 @@ button.close {
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  color: red;
   /*sticky footer*/
   display: -webkit-flex;
   display: flex;
   min-height: 100vh;
   -webkit-flex-direction: column;
   flex-direction: column;
+}
+
+/* line 1, ../sass/base/_utility.scss */
+.pointer {
+  cursor: pointer;
 }
