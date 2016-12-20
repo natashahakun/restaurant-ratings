@@ -3,8 +3,13 @@ angular.module("myApp").controller('DashboardController', ['$scope', '$rootScope
 	$scope.restaurants = RestaurantsService.restaurants;
 
 	$scope.showRestaurantInfo = function(restaurant) {
-        RestaurantDetailService.restaurant = restaurant;
-        $scope.selectedRestaurant = restaurant;
+		if (restaurant !== $scope.selectedRestaurant) {
+			RestaurantDetailService.restaurant = restaurant;
+        	$scope.selectedRestaurant = restaurant;
+		} else {
+			RestaurantDetailService.restaurant = {};
+        	$scope.selectedRestaurant = {};
+		}  
     };
 
 }]);

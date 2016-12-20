@@ -3,8 +3,13 @@ angular.module("myApp").controller('DashboardController', ['$scope', '$rootScope
 	$scope.restaurants = RestaurantsService.restaurants;
 
 	$scope.showRestaurantInfo = function(restaurant) {
-        RestaurantDetailService.restaurant = restaurant;
-        $scope.selectedRestaurant = restaurant;
+		if (restaurant !== $scope.selectedRestaurant) {
+			RestaurantDetailService.restaurant = restaurant;
+        	$scope.selectedRestaurant = restaurant;
+		} else {
+			RestaurantDetailService.restaurant = {};
+        	$scope.selectedRestaurant = {};
+		}  
     };
 
 }]);
@@ -42,31 +47,31 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 						recommend : true,
 						notes : 'Cheese steaks are not my go-to, but this was definitely good' 
 					}
-				],
-				drinks : [
-					{
-						name : '',
-						scale : 0,
-						recommend : false,
-						notes : ''
-					}
-				],
-				ambiance : {
-					scale : 7,
-					decor : [
-						'Pub', 
-						'Belgian'
-					],
-					notes : 'Cozy and fun'
-				},
-				noise : {
-					level : 5,
-					notes : ''
-				},
-				service : {
-					scale : 7,
-					notes : 'Chill yet attentive'
-				}
+				]
+				// drinks : [
+				// 	{
+				// 		name : '',
+				// 		scale : 0,
+				// 		recommend : false,
+				// 		notes : ''
+				// 	}
+				// ],
+				// ambiance : {
+				// 	scale : 7,
+				// 	decor : [
+				// 		'Pub', 
+				// 		'Belgian'
+				// 	],
+				// 	notes : 'Cozy and fun'
+				// },
+				// noise : {
+				// 	level : 5,
+				// 	notes : ''
+				// },
+				// service : {
+				// 	scale : 7,
+				// 	notes : 'Chill yet attentive'
+				// }
 			},
 			{
 				name : "JJ Thai Cuisine",
@@ -97,29 +102,29 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 						notes : 'Shrimp, salmon, eggplant were so good. Sticky rices and sauces mmm.'
 					}
 				],
-				drinks : [
-					{
-						name : '',
-						scale : 0,
-						recommend : false,
-						notes : ''
-					}
-				],
-				ambiance : {
-					scale : 8,
-					decor : [
-						'Asian'
-					],
-					notes : 'Intimate and cozy'
-				},
-				noise : {
-					level : 4,
-					notes : ''
-				},
-				service : {
-					scale : 9,
-					notes : 'Friendly and attentive. Drank my bodyweight in water because my cup kept filling up.'
-				}
+				// drinks : [
+				// 	{
+				// 		name : '',
+				// 		scale : 0,
+				// 		recommend : false,
+				// 		notes : ''
+				// 	}
+				// ],
+				// ambiance : {
+				// 	scale : 8,
+				// 	decor : [
+				// 		'Asian'
+				// 	],
+				// 	notes : 'Intimate and cozy'
+				// },
+				// noise : {
+				// 	level : 4,
+				// 	notes : ''
+				// },
+				// service : {
+				// 	scale : 9,
+				// 	notes : 'Friendly and attentive. Drank my bodyweight in water because my cup kept filling up.'
+				// }
 			},
 			{
 				name : "Elixir Coffee Roasters",
@@ -129,37 +134,37 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 				],
 				dishes : [
 					{
-						name : '',
-						scale : 0,
-						heavy : false,
-						recommend : false,
-						notes : ''
-					}
-				],
-				drinks : [
-					{
 						name : 'Almond Milk Latte',
 						scale : 9,
+						heavy : false,
 						recommend : true,
 						notes : 'How do they make this latte taste like a marshmallow?! Milk to espresso consistency on point.'
 					}
-				],
-				ambiance : {
-					scale : 8,
-					decor : [
-						'rustic', 
-						'industrial'
-					],
-					notes : 'Always packed!'
-				},
-				noise : {
-					level : 6,
-					notes : ''
-				},
-				service : {
-					scale : 7,
-					notes : 'Counter service.'
-				}
+				]
+				// drinks : [
+				// 	{
+				// 		name : 'Almond Milk Latte',
+				// 		scale : 9,
+				// 		recommend : true,
+				// 		notes : 'How do they make this latte taste like a marshmallow?! Milk to espresso consistency on point.'
+				// 	}
+				// ],
+				// ambiance : {
+				// 	scale : 8,
+				// 	decor : [
+				// 		'rustic', 
+				// 		'industrial'
+				// 	],
+				// 	notes : 'Always packed!'
+				// },
+				// noise : {
+				// 	level : 6,
+				// 	notes : ''
+				// },
+				// service : {
+				// 	scale : 7,
+				// 	notes : 'Counter service.'
+				// }
 			},
 			{
 				name : "Plenty Cafe",
@@ -182,31 +187,31 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 						recommend : true,
 						notes : 'Lots of avocado and delicious with the grilled corn and pickled onion. Wanted a liiitle salt on there.'
 					}
-				],
-				drinks : [
-					{
-						name : '',
-						scale : 0,
-						recommend : false,
-						notes : ''
-					}
-				],
-				ambiance : {
-					scale : 7,
-					decor : [
-						'Modern',
-						'Rustic'
-					],
-					notes : 'Lots of plants, clean lines, and windows. Wood seating looked great and was not incredibly comfortable.'
-				},
-				noise : {
-					level : 4,
-					notes : 'Went on a Sunday afternoon. Open space with not a lot to catch the sound could be a noise vortex at a busier time!'
-				},
-				service : {
-					scale : 9,
-					notes : 'Young lad did a great job!'
-				}
+				]
+				// drinks : [
+				// 	{
+				// 		name : '',
+				// 		scale : 0,
+				// 		recommend : false,
+				// 		notes : ''
+				// 	}
+				// ],
+				// ambiance : {
+				// 	scale : 7,
+				// 	decor : [
+				// 		'Modern',
+				// 		'Rustic'
+				// 	],
+				// 	notes : 'Lots of plants, clean lines, and windows. Wood seating looked great and was not incredibly comfortable.'
+				// },
+				// noise : {
+				// 	level : 4,
+				// 	notes : 'Went on a Sunday afternoon. Open space with not a lot to catch the sound could be a noise vortex at a busier time!'
+				// },
+				// service : {
+				// 	scale : 9,
+				// 	notes : 'Young lad did a great job!'
+				// }
 			},
 			{
 				name : "V Street",
@@ -243,30 +248,30 @@ angular.module("myApp").factory('RestaurantsService', function($rootScope) {
 						recommend : false,
 						notes : 'Great texture. Eggnog is not my jam. Probably would be great in another flavor, ideally salted caramel.'
 					}
-				],
-				drinks : [
-					{
-						name : '',
-						scale : 0,
-						recommend : false,
-						notes : ''
-					}
-				],
-				ambiance : {
-					scale : 8,
-					decor : [
-						'Eclectic'
-					],
-					notes : 'Cozy and warm on a Tuesday night.'
-				},
-				noise : {
-					level : 5,
-					notes : 'Thumbs up, but it was Tuesday.'
-				},
-				service : {
-					scale : 9,
-					notes : 'Great. I made a joke and he laughed. Broke the ice. NICE.'
-				}
+				]
+				// drinks : [
+				// 	{
+				// 		name : '',
+				// 		scale : 0,
+				// 		recommend : false,
+				// 		notes : ''
+				// 	}
+				// ],
+				// ambiance : {
+				// 	scale : 8,
+				// 	decor : [
+				// 		'Eclectic'
+				// 	],
+				// 	notes : 'Cozy and warm on a Tuesday night.'
+				// },
+				// noise : {
+				// 	level : 5,
+				// 	notes : 'Thumbs up, but it was Tuesday.'
+				// },
+				// service : {
+				// 	scale : 9,
+				// 	notes : 'Great. I made a joke and he laughed. Broke the ice. NICE.'
+				// }
 			}
 		]
 	};
