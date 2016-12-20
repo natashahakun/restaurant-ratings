@@ -26,7 +26,10 @@
             <div ng-include="'views/header.html'" class="header"></div>
             <div ng-include="'views/nav.html'" class="nav"></div>
 
-            <div ui-view></div>
+            <div class="row">
+                <div ng-include="'views/menu.html'" class="col-xs-12 col-md-2"></div>
+                <div ui-view class="col-xs-12 col-md-10"></div>
+            </div>
 
             <div ng-include="'views/footer.html'" class="footer"></div>
 
