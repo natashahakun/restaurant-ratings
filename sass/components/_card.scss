@@ -7,4 +7,17 @@
 	.name {
 		font-size: $font-md;
 	}	
+
+	.section-header {
+		padding-top: 10px;
+	}
+
+	.section-body {
+		padding: 10px 15px;
+		border-bottom: 1px solid gray;
+	}
+
+	.section-body:last-of-type {
+		border-bottom: none;
+	}
 }

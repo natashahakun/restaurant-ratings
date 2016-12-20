@@ -1,37 +1,22 @@
 <div ng-controller="RestaurantDetailController" class="row">
-
-	<div class="col-xs-12">Dishes</div>
-  	<div ng-repeat="dish in restaurant.dishes" class="col-xs-12">
-  		<div>Dish: {{ dish.name }}</div>
+	<div class="col-xs-12 text-info section-header">Dishes</div>
+  	<div ng-repeat="dish in restaurant.dishes" class="col-xs-12 section-body">
+  		<div>
+  			<span class="font-weight-bold">Dish: </span>
+  			{{ dish.name }}
+  		</div>
   		<div>{{ dish.scale }}</div>
-  		<div>Recommend: 
+  		<div>
+  			<span class="font-weight-bold">Recommend: </span>
   			<span>{{ setYesOrNo(dish.recommend) }}</span>
   		</div>
-  		<div>Heavy: 
+  		<div>
+  			<span class="font-weight-bold">Heavy: </span>
   			<span>{{ setYesOrNo(dish.heavy) }}</span>
   		</div>
-  		<div>Notes: {{ dish.notes }}</div>
+  		<div>
+  			<span class="font-weight-bold">Notes: </span>
+  			{{ dish.notes }}
+  		</div>
   	</div>
-
-  	<!-- <div ng-repeat="drink in drinks" class="col-xs-12">
-  		<div>{{ drink.name }}</div>
-  		<div>{{ drink.scale }}</div>
-  		<div>{{ drink.notes }}</div>
-  	</div>
-
-  	<div class="col-xs-12">
-	  	<div>{{ restaurant.ambiance.scale }}</div>
-	  	<div>{{ restaurant.ambiance.decor }}</div>
-	  	<div>{{ restaurant.ambiance.notes }}</div>
-  	</div>
-
-  	<div class="col-xs-12">
-	  	<div>{{ restaurant.noise.level }}</div>
-	  	<div>{{ restaurant.noise.notes }}</div>
-	</div>
-  	
-  	<div class="col-xs-12">
-	  	<div>{{ restaurant.service.scale }}</div>
-	  	<div>{{ restaurant.service.notes }}</div>
-	</div> -->
 </div>
