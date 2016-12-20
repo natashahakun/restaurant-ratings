@@ -4,8 +4,12 @@
   	<div ng-repeat="dish in restaurant.dishes" class="col-xs-12">
   		<div>Dish: {{ dish.name }}</div>
   		<div>{{ dish.scale }}</div>
-  		<div>Recommend: <span>{{ setYesOrNo(dish.recommend) }}</span></div>
-  		<div>Heavy: <span>{{ setYesOrNo(dish.heavy) }}</span></div>
+  		<div>Recommend: 
+  			<span>{{ setYesOrNo(dish.recommend) }}</span>
+  		</div>
+  		<div>Heavy: 
+  			<span>{{ setYesOrNo(dish.heavy) }}</span>
+  		</div>
   		<div>Notes: {{ dish.notes }}</div>
   	</div>
 
